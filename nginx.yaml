@@ -1,3 +1,18 @@
+kind:  ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-config
+data:
+  servers.conf: |-
+    server {
+      listen      80;
+      server_name api.oneclicksandwich.com;
+
+      location / {
+        proxy_pass http://ocs-api.default.svc.cluster.local:30379;
+      }
+    }
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
