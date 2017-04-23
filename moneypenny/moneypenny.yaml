@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: moneypenny
+  name: moneypenny-service
+spec:
+  ports:
+  - port: 42578
+    protocol: TCP
+  selector:
+    app: moneypenny
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: moneypenny
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: moneypenny
+    spec:
+      containers:
+      - name: moneypenny
+        image: tobyjsullivan/moneypenny:v0
+        ports:
+        - containerPort: 42578
+        env:
+        - name: PORT
+          value: "42578"
