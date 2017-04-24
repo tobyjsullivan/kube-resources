@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: moneypenny
-        image: tobyjsullivan/moneypenny:v1.1
+        image: tobyjsullivan/moneypenny:v1.2
         ports:
         - containerPort: 42578
         env:
