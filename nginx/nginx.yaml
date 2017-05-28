@@ -20,6 +20,22 @@ data:
         proxy_pass http://moneypenny-service.default.svc.cluster.local:42578;
       }
     }
+    server {
+      listen      80;
+      server_name event-store.tobysullivan.net;
+
+      location / {
+        proxy_pass http://event-store-service.default.svc.cluster.local:25583;
+      }
+    }
+    server {
+      listen      80;
+      server_name event-reader.tobysullivan.net;
+
+      location / {
+        proxy_pass http://event-reader-service.default.svc.cluster.local:11782;
+      }
+    }
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
