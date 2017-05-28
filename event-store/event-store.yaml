@@ -45,3 +45,37 @@ spec:
           value: "us-west-2"
         - name: DYNAMODB_TABLE
           value: "streams"
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: event-reader
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: event-store
+    spec:
+      containers:
+      - name: event-reader
+        image: tobyjsullivan/event-reader:v1.0
+        ports:
+        - containerPort: 11782
+        env:
+        - name: PORT
+          value: "11782"
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: event-reader-secret
+              key: aws.access-key-id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: event-reader-secret
+              key: aws.secret-access-key
+        - name: AWS_REGION
+          value: "us-west-2"
+        - name: DYNAMODB_TABLE
+          value: "streams"
