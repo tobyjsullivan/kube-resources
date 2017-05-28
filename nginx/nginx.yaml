@@ -33,7 +33,7 @@ data:
       server_name event-reader.tobysullivan.net;
 
       location / {
-        proxy_pass http://event-store-service.default.svc.cluster.local:11782;
+        proxy_pass http://event-reader-service.default.svc.cluster.local:11782;
       }
     }
 ---
