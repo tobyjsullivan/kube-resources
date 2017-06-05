@@ -17,7 +17,7 @@ kind: Deployment
 metadata:
   name: event-reader
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
