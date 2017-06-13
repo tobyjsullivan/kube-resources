@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: event-reader
-        image: tobyjsullivan/event-reader:v1.0
+        image: tobyjsullivan/event-reader:v1.1
         ports:
         - containerPort: 11782
         env:
