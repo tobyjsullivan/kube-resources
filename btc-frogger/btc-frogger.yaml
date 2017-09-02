@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: btc-frogger
-        image: tobyjsullivan/btc-frogger:1
+        image: tobyjsullivan/btc-frogger:1.0.1
         env:
         - name: COINBASE_API_ACCESS_KEY
           valueFrom:
