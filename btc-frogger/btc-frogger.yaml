@@ -1,0 +1,32 @@
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: btc-frogger
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: btc-frogger
+    spec:
+      containers:
+      - name: btc-frogger
+        image: tobyjsullivan/btc-frogger:1
+        env:
+        - name: COINBASE_API_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: btc-frogger-secret
+              key: coinbase-api.access-key
+        - name: COINBASE_API_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: btc-frogger-secret
+              key: coinbase-api.secret-key
+        - name: COINBASE_API_PASSPHRASE
+          valueFrom:
+            secretKeyRef:
+              name: btc-frogger-secret
+              key: coinbase-api.passphrase
