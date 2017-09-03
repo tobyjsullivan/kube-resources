@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: btc-frogger
-        image: tobyjsullivan/btc-frogger:2.1.4
+        image: tobyjsullivan/btc-frogger:2.2.0
         env:
         - name: COINBASE_API_ACCESS_KEY
           valueFrom:
@@ -29,3 +29,6 @@ spec:
             secretKeyRef:
               name: btc-frogger-secret
               key: coinbase-api.passphrase
+        - name: DWEET_THING_NAME
+          value: 759d42a3-b362-461b-9dd0-c783f42589b5
+
