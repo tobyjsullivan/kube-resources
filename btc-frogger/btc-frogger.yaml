@@ -13,6 +13,10 @@ spec:
       containers:
       - name: btc-frogger
         image: tobyjsullivan/btc-frogger:2.3.2
+        resources:
+          requests:
+            cpu: 20m
+            memory: 64Mi
         env:
         - name: COINBASE_API_ACCESS_KEY
           valueFrom:
