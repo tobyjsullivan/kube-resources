@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: btc-frogger
-        image: tobyjsullivan/btc-frogger:2.4.0
+        image: tobyjsullivan/btc-frogger:3.0.2
         resources:
           requests:
             cpu: 20m
